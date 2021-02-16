@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+/* export interface Player {
+  name:string,
+  email:string
+} */
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +12,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tetris';
+
+
+  /* printPlayer(player){
+    console.log(player);
+  } */
 }
