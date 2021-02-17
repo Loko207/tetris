@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {Routes,RouterModule} from '@angular/router';
 import { SharingService } from '../app/form/sharing.service';
+import {TetrisCoreModule} from 'ngx-tetris';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    TetrisCoreModule
   ],
   providers: [SharingService],
   bootstrap: [AppComponent]

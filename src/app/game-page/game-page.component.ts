@@ -21,4 +21,7 @@ export class GamePageComponent implements OnInit {
   print(){
     console.log(this.data);
   }
+  onLineCleared(){
+
+  }
 }
