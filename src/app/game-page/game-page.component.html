@@ -1,13 +1,29 @@
 <p>
-  <button (click)="goBack()">EXIT</button>
-  <button (click)="print()">data</button>
+  Enjoy your play {{ data.name }}<br />
+  Return into Intro-Page <button (click)="goBack()">EXIT</button>
+  <br />
+  Your current points: {{ points }}
+  <br />
+  Playing {{ seconds }}s
 </p>
+
+<button (click)="game.actionStart()" (click)="timeStart()">Start</button>
+<button (click)="game.actionStop()" (click)="timeStop()">Stop</button>
+<button
+  (click)="game.actionReset()"
+  (click)="game.actionStop()"
+  (click)="reset()"
+>
+  Reset
+</button>
+<br />
+<br />
+
 <tetris-core #game (lineCleared)="onLineCleared()"></tetris-core>
 
-<button (click)="game.actionStart()">Start</button>
-<button (click)="game.actionStop()">Stop</button>
-<button (click)="game.actionReset()">Reset</button>
 <button (click)="game.actionRotate()">Rotate</button>
+<br />
 <button (click)="game.actionLeft()">Left</button>
 <button (click)="game.actionRight()">Right</button>
-<button (click)="game.actionDown()" (click)="print()">Down</button>
+<br />
+<button (click)="game.actionDown()">Down</button>
