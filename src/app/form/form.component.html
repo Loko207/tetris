@@ -1,7 +1,13 @@
-<h1>TETRIS</h1>
-<p>Simple logic game</p>
-<p>
-  <input type="text" [(ngModel)]="name" placeholder="name" />
-  <input type="text" [(ngModel)]="email" placeholder="email" />
-  <button (click)="play()">PLAY</button>
-</p>
+<div class="container">
+  <h1>TETRIS</h1>
+  <p>Try yourself in simple logic game</p>
+  <p class="form">
+    <input type="text" [(ngModel)]="name" placeholder="name e.g. Jan" />
+    <input
+      type="text"
+      [(ngModel)]="email"
+      placeholder="email e.g. jan@gmail.com"
+    />
+    <button (click)="play()">PLAY</button>
+  </p>
+</div>

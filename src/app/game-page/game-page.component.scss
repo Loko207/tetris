@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.playerData {
+  text-align: center;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.optionsBtns {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+}
+.optionsBtns button {
+  height: 30px;
+  width: 60px;
+  border: none;
+  background-color: rgba(85, 212, 17, 1);
+  border-radius: 5px;
+}
+.optionsBtns button:hover {
+  background-color: rgba(85, 212, 17, 0.5);
+  cursor: pointer;
+}
+
+.game {
+  display: flex;
+  width: 50vw;
+}
+.pad {
+  margin-left: 20px;
+  margin-top: 100px;
+  width: 200px;
+}
+#btn1,
+#btn4 {
+  margin-left: 35px;
+}
+#btn2,
+#btn3 {
+  margin: 10px 0;
+}
+#btn3 {
+  margin-left: 10px;
+}
+.pad button {
+  height: 30px;
+  width: 60px;
+  border: none;
+  background-color: rgba(85, 212, 17, 1);
+  border-radius: 5px;
+}
+.pad button:hover {
+  background-color: rgba(85, 212, 17, 0.5);
+  cursor: pointer;
+}
+
+.pad div {
+  margin-bottom: 10px;
+  text-align: center;
+}

@@ -21,8 +21,8 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  private play(){
-    if(this.name && this.name.match(/\S/) && this.email.includes('@') && this.email.includes('.') && (this.email.indexOf('@')>0 && this.email.indexOf('@')<this.email.lastIndexOf('.'))){
+  play(){
+    if(this.name && this.name.match(/\S/) && this.email.includes('@') && this.email.includes('.') && (this.email.indexOf('@')>0 && this.email.indexOf('@')<this.email.lastIndexOf('.')) && this.email.lastIndexOf('.')!==this.email.length-1){
       this.sharingService.setData({name:this.name,email:this.email})
       this.router.navigateByUrl('/game-page')
     }
