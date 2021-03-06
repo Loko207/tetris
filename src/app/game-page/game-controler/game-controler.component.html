@@ -1,0 +1,11 @@
+<div class="pad">
+  <div>
+    Game status: <span> {{ ready }}</span>
+  </div>
+  <button id="btn1" (click)="game.actionRotate()">Rotate</button>
+  <br />
+  <button id="btn2" (click)="moveLeft()">Left</button>
+  <button id="btn3" (click)="game.actionRight()">Right</button>
+  <br />
+  <button id="btn4" (click)="game.actionDown()">Down</button>
+</div>

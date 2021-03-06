@@ -1,6 +1,6 @@
 <div class="container">
   <p class="playerData">
-    Enjoy your play <span> {{ data.name }}</span>
+    Enjoy your play <span> {{ data?.name }}</span>
     <br />
     Your current points: <span>{{ points }}</span>
     <br />
@@ -18,20 +18,10 @@
     >
       Reset
     </button>
-    <button (click)="goBack()">EXIT</button>
+    <button (click)="game.actionStop()" (click)="goBack()">EXIT</button>
   </div>
   <div class="game">
     <tetris-core #game (lineCleared)="onLineCleared()"></tetris-core>
-    <div class="pad">
-      <div>
-        Game status: <span> {{ status }}</span>
-      </div>
-      <button id="btn1" (click)="game.actionRotate()">Rotate</button>
-      <br />
-      <button id="btn2" (click)="game.actionLeft()">Left</button>
-      <button id="btn3" (click)="game.actionRight()">Right</button>
-      <br />
-      <button id="btn4" (click)="game.actionDown()">Down</button>
-    </div>
+    <app-game-controler [ready]="status" [game]="game"></app-game-controler>
   </div>
 </div>

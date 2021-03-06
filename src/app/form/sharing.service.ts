@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
+
+
 export class SharingService{
     private data:any;
 
-    setData(data:any){
+    public setData(data:any){
         this.data = data;
     }
 
-    getData():any{
+    public getData():any{
         return this.data;
     }
 }

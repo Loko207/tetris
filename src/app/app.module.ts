@@ -8,17 +8,21 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { GamePageComponent } from './game-page/game-page.component';
+import { GameControlerComponent } from './game-page/game-controler/game-controler.component';
 
 const appRoutes: Routes = [
-  {path:'',component:FormComponent},
-  {path:'game-page',component:GamePageComponent}
+  {path:'form',component:FormComponent},
+  {path:'game-page',component:GamePageComponent},
+  {path:'' ,redirectTo:'/form', pathMatch:'full'},
+  {path:'**', redirectTo:'/form'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    GamePageComponent
+    GamePageComponent,
+    GameControlerComponent
   ],
   imports: [
     BrowserModule,
@@ -29,4 +33,4 @@ const appRoutes: Routes = [
   providers: [SharingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
