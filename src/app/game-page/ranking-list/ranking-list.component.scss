@@ -1,0 +1,19 @@
+.ranking {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+}
+
+.sort {
+  margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 1.5em;
+}

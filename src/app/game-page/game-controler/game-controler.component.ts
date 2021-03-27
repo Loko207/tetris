@@ -9,9 +9,6 @@ export class GameControlerComponent {
   @Input() ready:string;
   @Input() game;
 
-  moveLeft(){
-    this.game.actionLeft();
-  }
   constructor() { }
 
   ngOnInit(): void {
