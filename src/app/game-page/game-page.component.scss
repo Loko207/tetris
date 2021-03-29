@@ -18,7 +18,7 @@ span {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  width: 30vw;
+  width: 50vw;
 }
 .optionsBtns button {
   height: 30px;
@@ -27,6 +27,11 @@ span {
   background-color: rgba(85, 212, 17, 1);
   border-radius: 5px;
 }
+
+#reset {
+  width: 150px;
+}
+
 .optionsBtns button:hover {
   background-color: rgba(85, 212, 17, 0.5);
   cursor: pointer;

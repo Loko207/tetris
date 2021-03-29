@@ -16,6 +16,7 @@ export class GamePageComponent {
   public data: any;
   public status: string = 'ready';
 
+  public sendedData: boolean = false;
   constructor(
     private _router: Router,
     private _sharingService: SharingService
@@ -25,34 +26,59 @@ export class GamePageComponent {
     this.data = this._sharingService.getData();
   }
 
-  private changeTime(sec) {
+  private _changeTime(sec) {
     if (sec === 60) {
       this.minutes += 1;
       this.seconds = 0;
     }
   }
+
   goBack() {
     this._router.navigateByUrl('/form');
   }
+
   reset() {
+    this._addPoints();
     this.points = 0;
     clearInterval(this._interval);
     this.seconds = 0;
     this.minutes = 0;
     this.status = 'ready';
   }
+
   timeStop() {
     clearInterval(this._interval);
     this.status = 'paused';
   }
+
   timeStart() {
     this._interval = setInterval(() => {
       this.seconds += 1;
-      this.changeTime(this.seconds);
+      this._changeTime(this.seconds);
     }, 1000);
     this.status = 'started';
   }
+
   onLineCleared() {
     this.points += 1;
+  }
+
+  onGameOver() {
+    this._addPoints();
+    this.timeStop();
+    alert('game over');
+  }
+
+  private _addPoints() {
+    this._sharingService
+      .sendScore(
+        {
+          name: this.data.name,
+          score: this.points,
+        },
+        this.data.token
+      )
+      .subscribe();
+    this.sendedData = !this.sendedData;
   }
 }

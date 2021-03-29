@@ -15,14 +15,19 @@
       (click)="game.actionReset()"
       (click)="game.actionStop()"
       (click)="reset()"
+      id="reset"
     >
-      Reset
+      Reset & add points
     </button>
     <button (click)="game.actionStop()" (click)="goBack()">EXIT</button>
   </div>
   <div class="game">
-    <tetris-core #game (lineCleared)="onLineCleared()"></tetris-core>
+    <tetris-core
+      #game
+      (lineCleared)="onLineCleared()"
+      (gameOver)="onGameOver()"
+    ></tetris-core>
     <app-game-controler [ready]="status" [game]="game"></app-game-controler>
   </div>
-  <app-ranking-list></app-ranking-list>
+  <app-ranking-list [refresh]="sendedData"></app-ranking-list>
 </div>

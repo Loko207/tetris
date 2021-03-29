@@ -1,22 +1,16 @@
 <div class="sort">
+  {{ refresh }}
   <label class="form-label">Sort by</label>
   <select class="form-select" [(ngModel)]="sortDirection">
-    <option value="asc">Lowest score first</option>
     <option value="desc">Highest score first</option>
+    <option value="asc">Lowest score first</option>
     <option value="myScore">My score</option>
   </select>
 </div>
 <div class="ranking">
-  <div>
-    <span>Players:</span>
-    <li *ngFor="let player of ranking | sort: 'score':sortDirection">
-      {{ player.name }}
-    </li>
-  </div>
-  <div>
-    <span>Points:</span>
-    <li *ngFor="let player of ranking | sort: 'score':sortDirection">
-      {{ player.score }}
-    </li>
-  </div>
+  <span id="title">Players:</span>
+  <li *ngFor="let player of ranking | sort: 'score':sortDirection:playerName">
+    <span id="playerName">{{ player.name }}</span>
+    <span id="playerId">{{ player.score }}</span>
+  </li>
 </div>

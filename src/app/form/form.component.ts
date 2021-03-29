@@ -22,7 +22,7 @@ export class FormComponent {
   ) {}
   ngOnInit(): void {}
 
-  async play() {
+  play() {
     this._sharingService.checkToken(this.token).subscribe((res) => {
       let token: any = res;
       if (!token.success) return alert('Put correct token 4 digits');

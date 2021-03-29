@@ -20,7 +20,7 @@ export class SharingService {
   constructor(private _http: HttpClient) {}
 
   public loadData(): Observable<PlayersList> {
-    return this._http.get<PlayersList>('http://tetris.chrum.it/scores', {
+    return this._http.get<PlayersList>(`http://localhost:8080/scores`, {
       headers: {
         accept: 'application/json',
       },
@@ -28,12 +28,22 @@ export class SharingService {
   }
 
   public checkToken(token) {
-    return this._http.post('http://tetris.chrum.it/check-token', {
-      headers: {
-        accept: 'application/json',
+    return this._http.post(
+      `http://localhost:8080/check-token`,
+      {
+        'auth-token': token,
       },
-      'auth-token': token,
-    });
+      {
+        headers: {
+          accept: 'application/json',
+        },
+      }
+    );
+  }
+
+  public sendScore(body, token) {
+    body = { ...body, ...{ 'auth-token': token } };
+    return this._http.post(`http://localhost:8080/scores`, body);
   }
 
   public setData(data: any) {
