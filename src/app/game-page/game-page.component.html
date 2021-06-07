@@ -23,6 +23,7 @@
   </div>
   <div class="game">
     <tetris-core
+      [class]="class"
       #game
       (lineCleared)="onLineCleared()"
       (gameOver)="onGameOver()"

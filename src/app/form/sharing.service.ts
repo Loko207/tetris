@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 export interface Player {
   name: string;
@@ -20,7 +21,7 @@ export class SharingService {
   constructor(private _http: HttpClient) {}
 
   public loadData(): Observable<PlayersList> {
-    return this._http.get<PlayersList>(`http://localhost:8080/scores`, {
+    return this._http.get<PlayersList>(`${environment.apiURL}/scores`, {
       headers: {
         accept: 'application/json',
       },
@@ -29,7 +30,7 @@ export class SharingService {
 
   public checkToken(token) {
     return this._http.post(
-      `http://localhost:8080/check-token`,
+      `${environment.apiURL}/check-token`,
       {
         'auth-token': token,
       },
@@ -43,7 +44,7 @@ export class SharingService {
 
   public sendScore(body, token) {
     body = { ...body, ...{ 'auth-token': token } };
-    return this._http.post(`http://localhost:8080/scores`, body);
+    return this._http.post(`${environment.apiURL}/scores`, body);
   }
 
   public setData(data: any) {

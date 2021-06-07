@@ -3,15 +3,13 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-game-controler',
   templateUrl: './game-controler.component.html',
-  styleUrls: ['../game-page.component.scss']
+  styleUrls: ['../game-page.component.scss'],
 })
 export class GameControlerComponent {
-  @Input() ready:string;
+  @Input() ready: string;
   @Input() game;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

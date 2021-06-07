@@ -5,7 +5,7 @@ import { SharingService } from '../app/form/sharing.service';
 import { TetrisCoreModule } from 'ngx-tetris';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { GameControlerComponent } from './game-page/game-controler/game-controler.component';
@@ -15,9 +15,9 @@ import { SortPipe } from './game-page/sort.pipe';
 
 const appRoutes: Routes = [
   { path: 'form', component: FormComponent },
-  { path: 'game-page', component: GamePageComponent },
+  { path: 'game-page/:color', component: GamePageComponent },
   { path: '', redirectTo: '/form', pathMatch: 'full' },
-  { path: '**', redirectTo: '/game-page' },
+  { path: '**', redirectTo: '/game-page/:color' },
 ];
 
 @NgModule({
@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     TetrisCoreModule,
     HttpClientModule,

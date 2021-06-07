@@ -21,14 +21,17 @@ export class SortPipe implements PipeTransform {
     if (dir === 'myScore') {
       return values
         .filter((e) => e.name.toLowerCase() === name)
-        .sort((a, b) => b[field] - a[field]);
+        .sort((a, b) => b[field] - a[field])
+        .slice(0, 10);
     }
-    return values.sort((a, b) => {
-      if (dir === 'asc') {
-        return a[field] - b[field];
-      }
+    return values
+      .sort((a, b) => {
+        if (dir === 'asc') {
+          return a[field] - b[field];
+        }
 
-      return b[field] - a[field];
-    });
+        return b[field] - a[field];
+      })
+      .slice(0, 10);
   }
 }

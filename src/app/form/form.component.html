@@ -1,9 +1,13 @@
 <div class="container">
   <h1>TETRIS</h1>
   <p>Try yourself in simple logic game</p>
-  <p class="form">
-    <input type="text" [(ngModel)]="name" placeholder="name" />
-    <input type="text" [(ngModel)]="token" placeholder="token" />
-    <button (click)="play()">PLAY</button>
-  </p>
+  <form class="form" [formGroup]="spamForm" (submit)="onSubmit(spamForm)">
+    <input type="text" formControlName="name" placeholder="name" />
+    <input type="text" formControlName="token" placeholder="token" />
+    Select color:
+    <select formControlName="color">
+      <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+    </select>
+    <button [disabled]="!spamForm.valid">PLAY</button>
+  </form>
 </div>
